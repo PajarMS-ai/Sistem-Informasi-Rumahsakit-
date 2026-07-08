@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a3cff579-c772-419c-bd1c-10d0853d5efe">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<queryString language="SQL">
+		<![CDATA[select*from Obat]]>
+	</queryString>
+	<field name="kode_obat" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nama_obat" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="jenis" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="stok" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="harga" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="132" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="451" height="95" backcolor="#000000" uuid="2e68f221-8a82-4d28-b972-9d11eb3913b8"/>
+				<staticText>
+					<reportElement style="Title" x="0" y="0" width="396" height="66" uuid="6d1fff09-82c6-4f17-9b1e-59c68c89da48"/>
+					<textElement>
+						<font isBold="false"/>
+					</textElement>
+					<text><![CDATA[Laporan Data Obat]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement mode="Opaque" x="0" y="100" width="451" height="32" forecolor="#000000" backcolor="#CC0000" uuid="10e7ab4a-8d67-4648-91de-0929ed6c793d"/>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement x="307" y="12" width="144" height="20" forecolor="#FFFFFF" uuid="e3eebb4c-1463-4c88-9005-dea0eca8fa8c"/>
+					<textElement textAlignment="Right">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="26" splitType="Stretch">
+			<staticText>
+				<reportElement style="Column header" x="0" y="7" width="111" height="18" forecolor="#000000" uuid="f0e9bf2f-7c48-48f8-9320-a227e1e16146"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[kode_obat]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="111" y="7" width="111" height="18" forecolor="#000000" uuid="748c4878-903e-4d9f-b0c7-b902a80a2107"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[nama_obat]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="222" y="7" width="111" height="18" forecolor="#000000" uuid="c3837523-05e0-4871-88f7-5b062632915f"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[jenis]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="333" y="7" width="111" height="18" forecolor="#000000" uuid="1c90342a-c368-47dd-941c-66db1f884720"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[stok]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="444" y="7" width="111" height="18" forecolor="#000000" uuid="e54ae7b7-2866-4f51-b562-ffdf7b639fa9"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[harga]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="18" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="0" y="0" width="555" height="18" uuid="23c4152b-ca36-4353-8cb4-a35a41567f09"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="0" y="0" width="111" height="18" uuid="a6bf7985-7032-412a-9ac4-3a0c5ae5f1be"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{kode_obat}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="111" y="0" width="111" height="18" uuid="ae96a975-72e2-4d6d-b1da-6d3ea2ea38fd"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{nama_obat}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="222" y="0" width="111" height="18" uuid="bf1ecdb7-5e16-427f-acb8-f5a4db5c0f8f"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{jenis}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="333" y="0" width="111" height="18" uuid="af46eba7-ac36-49a6-b4d4-3de20cb184cd"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{stok}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="444" y="0" width="111" height="18" uuid="00b13521-51b3-4647-b806-fe84da276c43"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{harga}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="7" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="106125cd-39d1-4aae-af82-66d6d0359aa8"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="1" width="555" height="24" forecolor="#D0B48E" backcolor="#000000" uuid="54752fed-714b-4dea-a507-92a191ab7bbc"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="513" y="0" width="40" height="20" forecolor="#FFFFFF" uuid="937691bb-9793-4268-af8e-694f6828b3f2"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="433" y="0" width="80" height="20" forecolor="#FFFFFF" uuid="9262fdb4-9067-4b6c-bb18-ef537dff424e"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="2" y="1" width="197" height="20" forecolor="#FFFFFF" uuid="1ac4896c-5e6a-4a8b-bf6c-4ed39be2c3a5"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
